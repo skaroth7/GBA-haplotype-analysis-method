@@ -1,0 +1,17 @@
+Install.packages(“haplotypes”)
+
+require("haplotypes")
+
+#read in the merged_fasta_file
+x <- read.fas("merged_sample_sequences.fasta")
+
+#Convert to a matrix form
+as.matrix(x)
+
+#infer haplotypes
+hap <- haplotypes::haplotype(x,indels="m")
+
+
+#Length(hap) gives the total number of haplotypes
+length(hap)
+hap
