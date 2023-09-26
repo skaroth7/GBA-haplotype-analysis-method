@@ -1,0 +1,4 @@
+for FILE in *.fasta;
+do
+ awk '/^>/ {gsub(/.fasta(sta)?$/,"",FILENAME);printf(">%s\n",FILENAME);next;} {print}' $FILE > "/WORKSPACE/hap_${FILE}"
+done
