@@ -1,0 +1,7 @@
+makeblastdb -in unique_haplotypes.fasta -parse_seqids -blastdb_version 5 -title "Unique_Haplotypes" -dbtype prot
+
+for FILE in *.fasta
+#for each sample halotype fasta for each sample haplotype fasta file
+do
+blastn -query "\worksapce\sample_haplotypes\$FILE.fasta -db unique_haplotypes.fasta -outfmt 6 | sort -k1,1 -k12,12nr -k11,11n | sort -u -k1,1 --merge > best_single_hits.blastn
+done
