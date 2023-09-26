@@ -1,0 +1,10 @@
+For i in sample1 sample2 sample3 etc 
+#all sample names, numbered according to the order they were added to the merged VCF file
+
+do
+set -x
+bcftools consensus -s $i -H 1 -f "/WORKSPACE/GBA.fasta" "/WORKSPACE//WORKSPACE/compiled_sampleVCF.vcf.gz" -o  “dir/haplotype1.fasta_$i”
+bcftools consensus -s $i -H 2 -f "/WORKSPACE/GBA.fasta" "/WORKSPACE/compiled_sampleVCF.vcf.gz" -o  “dir/haplotype2_$i.fasta”
+
+cd .. 
+done
